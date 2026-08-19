@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hide10.github.io/micro-tools/sitemap.xml

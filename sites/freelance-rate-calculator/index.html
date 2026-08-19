@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="会社員の額面年収から、同じ手取りを維持するために必要なフリーランスの年間売上・月単価・日単価を無料で概算します。">
+    <link rel="canonical" href="https://hide10.github.io/micro-tools/tools/freelance-rate-calculator/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="会社員年収からフリーランス月単価を逆算">
+    <meta property="og:description" content="会社員の額面年収から、独立後に必要な年間売上・月単価・日単価を無料で概算します。">
+    <meta property="og:url" content="https://hide10.github.io/micro-tools/tools/freelance-rate-calculator/">
+    <meta name="twitter:card" content="summary">
+    <title>会社員年収からフリーランス月単価を逆算 | micro-tools</title>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "会社員年収からフリーランス月単価を逆算",
+        "url": "https://hide10.github.io/micro-tools/tools/freelance-rate-calculator/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "isAccessibleForFree": true,
+        "inLanguage": "ja",
+        "description": "会社員の額面年収から、同じ手取りを維持するために必要なフリーランスの年間売上・月単価・日単価を概算します。"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="../../">HIDE10 / MICRO TOOLS</a>
+      <span>TOOL 001</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">SALARY → FREELANCE RATE</p>
+        <h1>会社を辞める前に、<br><em>月単価</em>を出す。</h1>
+        <p class="lead">会社員の年収とフリーランスの売上は、そのまま比べられません。経費、税・社会保険、仕事が空く期間を自分の条件で置き、必要な売上を逆算します。</p>
+      </section>
+
+      <section class="calculator" aria-labelledby="calculator-title">
+        <div class="form-column">
+          <div class="section-label"><span>01</span><h2 id="calculator-title">条件を置く</h2></div>
+          <form id="rate-form">
+            <label class="primary-field">
+              <span>現在の額面年収</span>
+              <span class="input-wrap"><input name="salary" type="number" min="100" max="5000" step="10" value="740" inputmode="decimal"><b>万円</b></span>
+            </label>
+
+            <details>
+              <summary>前提を細かく調整する</summary>
+              <div class="detail-grid">
+                <label><span>会社員の税・社保率</span><span class="input-wrap"><input name="companyDeductionRate" type="number" min="0" max="60" step="1" value="23"><b>%</b></span></label>
+                <label><span>独立後の経費率</span><span class="input-wrap"><input name="expenseRate" type="number" min="0" max="80" step="1" value="15"><b>%</b></span></label>
+                <label><span>独立後の税・社保率</span><span class="input-wrap"><input name="freelanceDeductionRate" type="number" min="0" max="60" step="1" value="30"><b>%</b></span></label>
+                <label><span>売上の安全余裕</span><span class="input-wrap"><input name="stabilityBufferRate" type="number" min="0" max="80" step="1" value="10"><b>%</b></span></label>
+                <label><span>年間の請求可能月数</span><span class="input-wrap"><input name="billableMonths" type="number" min="1" max="12" step="0.5" value="10.5"><b>か月</b></span></label>
+                <label><span>1か月の請求日数</span><span class="input-wrap"><input name="billableDays" type="number" min="1" max="31" step="1" value="18"><b>日</b></span></label>
+              </div>
+            </details>
+          </form>
+          <p class="privacy-note">入力値は送信・保存されず、このブラウザ内だけで計算します。</p>
+        </div>
+
+        <div class="result-column" aria-live="polite">
+          <div class="section-label inverse"><span>02</span><h2>必要な水準</h2></div>
+          <p class="result-caption">年間売上の目安</p>
+          <p class="annual-result"><strong id="annual-revenue">1,053</strong><span>万円</span></p>
+          <div class="result-grid">
+            <div><span>月単価</span><strong id="monthly-rate">100</strong><small>万円</small></div>
+            <div><span>日単価</span><strong id="daily-rate">5.6</strong><small>万円</small></div>
+            <div><span>年収倍率</span><strong id="salary-multiple">1.42</strong><small>倍</small></div>
+            <div><span>現金6か月分</span><strong id="cash-buffer">285</strong><small>万円</small></div>
+          </div>
+          <p id="result-summary" class="result-summary">年収740万円なら、10.5か月稼働で月単価約100万円が目安です。</p>
+          <button id="copy-result" class="copy-button" type="button">この条件のURLをコピー</button>
+          <p id="copy-status" class="copy-status" role="status"></p>
+        </div>
+      </section>
+
+      <section id="offers" class="offers" aria-labelledby="offers-title" hidden>
+        <div class="section-label"><span>03</span><h2 id="offers-title">条件に合う案件を探す</h2></div>
+        <p class="ad-disclosure">広告：この欄のリンクを経由して申込みが成立すると、当サイトに報酬が入る場合があります。</p>
+        <div id="offer-list"></div>
+      </section>
+
+      <section class="method">
+        <div class="section-label"><span>NOTE</span><h2>数字の読み方</h2></div>
+        <div class="method-grid">
+          <article><h3>これは税額計算ではない</h3><p>税・社会保険料は家族構成、自治体、控除で変わります。給与明細や見積額に合わせて率を調整し、独立判断の幅を見るために使ってください。</p></article>
+          <article><h3>売上と月単価を分ける</h3><p>年間売上が同じでも、案件の切替や休暇で請求できる月が減れば、必要な月単価は上がります。既定値は10.5か月です。</p></article>
+          <article><h3>契約前に条件を確認する</h3><p>表示額には消費税、交通費、機材購入、エージェント手数料などを個別に含めていません。契約条件と実際の経費で最終確認してください。</p></article>
+        </div>
+        <p class="disclaimer">この計算は概算です。税務・社会保険・契約上の助言ではありません。申告や契約などの最終判断には、国税庁、日本年金機構、自治体、契約先等の公式情報をご確認ください。</p>
+      </section>
+    </main>
+
+    <footer><span>MICRO TOOLS / 001</span><a href="../../">ツール一覧へ</a></footer>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

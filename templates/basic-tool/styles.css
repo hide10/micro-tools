@@ -1,0 +1,4 @@
+:root { color-scheme: light; font-family: sans-serif; }
+body { margin: 0; padding: 2rem; }
+main { width: min(760px, 100%); margin: auto; }
+

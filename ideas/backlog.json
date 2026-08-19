@@ -1,0 +1,114 @@
+[
+  {
+    "slug": "freelance-rate-calculator",
+    "title": "会社員年収からフリーランス月単価を逆算",
+    "problemQuery": "会社員 年収 フリーランス いくら必要 月単価",
+    "audience": "独立を考えている会社員エンジニア",
+    "monetization": "ITフリーランス案件紹介",
+    "programEvidence": "https://www.accesstrade.ne.jp/cp/jinzai22/",
+    "programNote": "公開特集に1万円超の案件例があるが、現行条件と提携可否は管理画面で要確認",
+    "approvalStatus": "needs-user-login",
+    "scores": {
+      "searchIntent": 5,
+      "payoutPotential": 5,
+      "authorityFit": 4,
+      "implementationEase": 5,
+      "competition": 3,
+      "maintenanceCost": 2
+    },
+    "status": "built-local",
+    "evidenceCheckedAt": "2026-08-19",
+    "metrics": {
+      "publishedUrl": "",
+      "publishedAt": null,
+      "review14d": null,
+      "review30d": null,
+      "approvedConversions": 0,
+      "approvedRevenueYen": 0
+    }
+  },
+  {
+    "slug": "credit-card-break-even",
+    "title": "クレジットカード年会費の損益分岐点",
+    "problemQuery": "クレジットカード 年会費 元が取れる 計算",
+    "audience": "有料カードへの切替を検討する人",
+    "monetization": "クレジットカード発行",
+    "programEvidence": "https://www.valuecommerce.ne.jp/client/finance.html",
+    "programNote": "金融案件はあるがカード別の報酬・審査・表現条件はログイン後に確認",
+    "approvalStatus": "needs-user-login",
+    "scores": {
+      "searchIntent": 5,
+      "payoutPotential": 5,
+      "authorityFit": 3,
+      "implementationEase": 4,
+      "competition": 5,
+      "maintenanceCost": 5
+    },
+    "status": "researched",
+    "evidenceCheckedAt": "2026-08-19",
+    "metrics": {
+      "publishedUrl": "",
+      "publishedAt": null,
+      "review14d": null,
+      "review30d": null,
+      "approvedConversions": 0,
+      "approvedRevenueYen": 0
+    }
+  },
+  {
+    "slug": "side-job-price-calculator",
+    "title": "副業の手取り目標から販売単価を逆算",
+    "problemQuery": "副業 手取り 販売価格 手数料 逆算",
+    "audience": "小さなデジタル商品や受託を始める人",
+    "monetization": "会計ソフト・ASP登録・販売サービス",
+    "programEvidence": "https://www.a8.net/",
+    "programNote": "対象案件の有無と成果条件を管理画面で確認",
+    "approvalStatus": "needs-user-login",
+    "scores": {
+      "searchIntent": 4,
+      "payoutPotential": 3,
+      "authorityFit": 4,
+      "implementationEase": 5,
+      "competition": 3,
+      "maintenanceCost": 2
+    },
+    "status": "candidate",
+    "evidenceCheckedAt": "2026-08-19",
+    "metrics": {
+      "publishedUrl": "",
+      "publishedAt": null,
+      "review14d": null,
+      "review30d": null,
+      "approvedConversions": 0,
+      "approvedRevenueYen": 0
+    }
+  },
+  {
+    "slug": "mobile-plan-total-cost",
+    "title": "スマホ回線の年間総額比較",
+    "problemQuery": "スマホ 料金 年間 総額 比較 シミュレーター",
+    "audience": "通信費を見直す人",
+    "monetization": "SIM・光回線契約",
+    "programEvidence": "https://www.accesstrade.ne.jp/",
+    "programNote": "既存ブログとの相性は良いが料金更新の保守負担が大きい",
+    "approvalStatus": "needs-user-login",
+    "scores": {
+      "searchIntent": 5,
+      "payoutPotential": 4,
+      "authorityFit": 5,
+      "implementationEase": 3,
+      "competition": 5,
+      "maintenanceCost": 5
+    },
+    "status": "candidate",
+    "evidenceCheckedAt": "2026-08-19",
+    "metrics": {
+      "publishedUrl": "",
+      "publishedAt": null,
+      "review14d": null,
+      "review30d": null,
+      "approvedConversions": 0,
+      "approvedRevenueYen": 0
+    }
+  }
+]

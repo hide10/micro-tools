@@ -1,0 +1,19 @@
+{
+  "name": "hide10-micro-tools",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "score": "node scripts/score-ideas.mjs",
+    "next": "node scripts/next-idea.mjs",
+    "status": "node scripts/status.mjs",
+    "new": "node scripts/new-tool.mjs",
+    "validate": "node scripts/validate.mjs",
+    "test": "node --test sites/**/*.test.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "npm run score && npm run next && npm run status && npm run validate && npm test && npm run build"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

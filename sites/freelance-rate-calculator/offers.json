@@ -1,0 +1,10 @@
+[
+  {
+    "id": "freelance-agent-primary",
+    "label": "条件に合う案件を探す",
+    "description": "提携承認後に、成果条件を確認した案件紹介サービスだけを表示します。",
+    "approvalStatus": "needs-user-login",
+    "url": ""
+  }
+]
+
