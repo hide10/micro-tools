@@ -48,11 +48,11 @@
       "competition": 4,
       "maintenanceCost": 2
     },
-    "status": "built-local",
+    "status": "published",
     "evidenceCheckedAt": "2026-08-19",
     "metrics": {
-      "publishedUrl": "",
-      "publishedAt": null,
+      "publishedUrl": "https://hide10.github.io/micro-tools/tools/settlement-range-calculator/",
+      "publishedAt": "2026-08-19",
       "review14d": null,
       "review30d": null,
       "approvedConversions": 0,
