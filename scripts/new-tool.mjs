@@ -9,6 +9,7 @@ if (!slug || !title || !/^[a-z0-9-]+$/.test(slug)) {
 
 const root = path.resolve(new URL('..', import.meta.url).pathname)
 const target = path.join(root, 'sites', slug)
+const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date())
 await mkdir(path.dirname(target), { recursive: true })
 await cp(path.join(root, 'templates', 'basic-tool'), target, {
   recursive: true,
@@ -21,9 +22,8 @@ for (const filename of ['index.html', 'tool.json']) {
   const source = await readFile(targetFile, 'utf8')
   await writeFile(
     targetFile,
-    source.replaceAll('__SLUG__', slug).replaceAll('__TITLE__', title),
+    source.replaceAll('__SLUG__', slug).replaceAll('__TITLE__', title).replaceAll('__DATE__', today),
   )
 }
 
 console.log(`created: sites/${slug}`)
-

@@ -3,12 +3,14 @@ import path from 'node:path'
 
 const root = path.resolve(new URL('..', import.meta.url).pathname)
 const dist = path.join(root, 'dist')
+const indexNow = JSON.parse(await readFile(path.join(root, 'indexnow.json'), 'utf8'))
 
 await rm(dist, { recursive: true, force: true })
 await mkdir(dist, { recursive: true })
 await cp(path.join(root, 'styles.css'), path.join(dist, 'styles.css'))
 await cp(path.join(root, 'favicon.svg'), path.join(dist, 'favicon.svg'))
 await cp(path.join(root, 'robots.txt'), path.join(dist, 'robots.txt'))
+await cp(path.join(root, indexNow.keyFile), path.join(dist, indexNow.keyFile))
 await cp(path.join(root, 'sites'), path.join(dist, 'tools'), {
   recursive: true,
   filter(source) {

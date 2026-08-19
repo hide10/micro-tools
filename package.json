@@ -9,7 +9,7 @@
     "status": "node scripts/status.mjs",
     "new": "node scripts/new-tool.mjs",
     "validate": "node scripts/validate.mjs",
-    "test": "node --test sites/**/*.test.mjs",
+    "test": "node --test sites/**/*.test.mjs scripts/**/*.test.mjs",
     "build": "node scripts/build.mjs",
     "check": "npm run score && npm run next && npm run status && npm run validate && npm test && npm run build"
   },
