@@ -9,14 +9,10 @@ const output = {
   cashBuffer: document.querySelector('#cash-buffer'),
   summary: document.querySelector('#result-summary'),
 }
-let completionTracked = false
+let completionTimer
 
 function track(event, parameters = {}) {
-  window.dataLayer = window.dataLayer || []
-  window.dataLayer.push({ event, tool_slug: 'freelance-rate-calculator', ...parameters })
-  if (typeof window.gtag === 'function') {
-    window.gtag('event', event, { tool_slug: 'freelance-rate-calculator', ...parameters })
-  }
+  window.microToolsTrack?.(event, { tool_slug: 'freelance-rate-calculator', ...parameters })
 }
 
 function valuesFromForm() {
@@ -44,12 +40,6 @@ function render() {
     for (const [name, value] of Object.entries(values)) url.searchParams.set(name, value)
     window.history.replaceState({}, '', url)
 
-    if (!completionTracked) {
-      track('tool_complete', {
-        annual_revenue_band: Math.round(result.annualRevenue / 100) * 100,
-      })
-      completionTracked = true
-    }
   } catch (error) {
     output.summary.textContent = '入力値を確認してください。'
   }
@@ -94,7 +84,11 @@ async function loadOffers() {
   track('affiliate_offer_impression', { offer_count: offers.length })
 }
 
-form.addEventListener('input', render)
+form.addEventListener('input', () => {
+  render()
+  clearTimeout(completionTimer)
+  completionTimer = setTimeout(() => track('tool_complete'), 700)
+})
 document.querySelector('#copy-result').addEventListener('click', async () => {
   await navigator.clipboard.writeText(window.location.href)
   document.querySelector('#copy-status').textContent = 'URLをコピーしました。'
@@ -104,4 +98,3 @@ document.querySelector('#copy-result').addEventListener('click', async () => {
 restoreFromUrl()
 render()
 loadOffers().catch(() => {})
-

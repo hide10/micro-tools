@@ -9,7 +9,9 @@ await rm(dist, { recursive: true, force: true })
 await mkdir(dist, { recursive: true })
 await cp(path.join(root, 'styles.css'), path.join(dist, 'styles.css'))
 await cp(path.join(root, 'favicon.svg'), path.join(dist, 'favicon.svg'))
+await cp(path.join(root, 'analytics.js'), path.join(dist, 'analytics.js'))
 await cp(path.join(root, 'robots.txt'), path.join(dist, 'robots.txt'))
+await cp(path.join(root, 'privacy'), path.join(dist, 'privacy'), { recursive: true })
 await cp(path.join(root, indexNow.keyFile), path.join(dist, indexNow.keyFile))
 await cp(path.join(root, 'sites'), path.join(dist, 'tools'), {
   recursive: true,

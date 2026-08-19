@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <meta name="description" content="micro-toolsのプライバシーとアクセス解析について。">
+    <link rel="canonical" href="https://hide10.github.io/micro-tools/privacy/">
+    <title>プライバシー | micro-tools</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../analytics.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header class="masthead"><p><a href="../">HIDE10 / MICRO TOOLS</a></p><span>PRIVACY</span></header>
+      <article class="privacy-page">
+        <h1>プライバシー</h1>
+        <p>各計算ツールの入力値はブラウザ内だけで処理され、サーバーへ送信・保存されません。</p>
+        <h2>アクセス解析</h2>
+        <p>改善と成果確認のためGoogle Analytics 4を使い、ページ閲覧、ツール操作、結果URLの共有、広告の表示・クリックを計測します。給与額、月額単価、稼働時間などの入力値と、それらを含むURLクエリは送信しません。広告目的のGoogleシグナルとパーソナライズは無効にしています。</p>
+        <p>ブラウザのDo Not Trackが有効な場合は解析を読み込みません。下のボタンでも、このブラウザでの解析を停止できます。</p>
+        <button id="analytics-opt-out" type="button">このブラウザで解析を停止</button>
+        <p id="privacy-status" class="privacy-status" role="status"></p>
+        <h2>広告</h2>
+        <p>将来、承認済みのアフィリエイトリンクを掲載する場合があります。その場合は広告であることをページ内へ明示します。未承認の案件リンクは表示しません。</p>
+        <h2>外部サービス</h2>
+        <p>アクセス解析に関する情報は、<a href="https://policies.google.com/technologies/partner-sites?hl=ja" rel="noopener noreferrer">Googleの説明</a>をご確認ください。</p>
+      </article>
+      <footer class="site-footer"><span>MICRO TOOLS / PRIVACY</span><a href="../">ツール一覧へ</a></footer>
+    </main>
+    <script>
+      document.querySelector('#analytics-opt-out').addEventListener('click', () => {
+        window.disableMicroToolsAnalytics?.()
+        document.querySelector('#privacy-status').textContent = 'このブラウザでのアクセス解析を停止しました。'
+      })
+    </script>
+  </body>
+</html>

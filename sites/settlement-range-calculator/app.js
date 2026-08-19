@@ -13,6 +13,11 @@ const output = {
   summary: document.querySelector('#result-summary'),
 }
 const number = new Intl.NumberFormat('ja-JP')
+let completionTimer
+
+function track(event, parameters = {}) {
+  window.microToolsTrack?.(event, { tool_slug: 'settlement-range-calculator', ...parameters })
+}
 
 function currentInput() {
   return {
@@ -43,7 +48,6 @@ function render() {
     output.deduction.textContent = number.format(result.deductionRate)
     output.summary.textContent = result.summary
     saveUrl()
-    window.dataLayer?.push({ event: 'tool_complete', tool: 'settlement-range-calculator', state: result.state })
   } catch (error) {
     output.state.textContent = '入力条件を確認'
     output.summary.textContent = error.message
@@ -75,20 +79,24 @@ async function loadOffers() {
     link.href = offer.url
     link.rel = 'sponsored noopener noreferrer'
     link.textContent = offer.cta ?? '条件を見る'
-    link.addEventListener('click', () => window.dataLayer?.push({ event: 'affiliate_outbound_click', offer: offer.id }))
+    link.addEventListener('click', () => track('affiliate_outbound_click', { offer_id: offer.id }))
     text.append(title, note)
     card.append(text, link)
     list.append(card)
   }
   section.hidden = false
-  window.dataLayer?.push({ event: 'affiliate_offer_impression', tool: 'settlement-range-calculator' })
+  track('affiliate_offer_impression', { offer_count: offers.length })
 }
 
-form.addEventListener('input', render)
+form.addEventListener('input', () => {
+  render()
+  clearTimeout(completionTimer)
+  completionTimer = setTimeout(() => track('tool_complete'), 700)
+})
 document.querySelector('#copy-result').addEventListener('click', async () => {
   await navigator.clipboard.writeText(window.location.href)
   document.querySelector('#copy-status').textContent = 'URLをコピーしました。'
-  window.dataLayer?.push({ event: 'tool_result_share', tool: 'settlement-range-calculator' })
+  track('tool_result_share')
 })
 
 restoreUrl()

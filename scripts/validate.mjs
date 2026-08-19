@@ -20,6 +20,9 @@ for (const entry of await readdir(sitesRoot, { withFileTypes: true })) {
   if (!html.includes('<title>') || !html.includes('meta name="description"')) {
     errors.push(`${entry.name}: title または description がありません`)
   }
+  if (!html.includes('rel="canonical"')) {
+    errors.push(`${entry.name}: canonical URL がありません`)
+  }
   if (!html.includes('この計算は概算です')) {
     errors.push(`${entry.name}: 概算であることの表示がありません`)
   }
@@ -33,6 +36,9 @@ for (const entry of await readdir(sitesRoot, { withFileTypes: true })) {
   }
   if (['ready', 'published'].includes(tool.status) && tool.number === 'TBD') {
     errors.push(`${entry.name}: 公開対象ですが number が未設定です`)
+  }
+  if (['ready', 'published'].includes(tool.status) && !html.includes('../../analytics.js')) {
+    errors.push(`${entry.name}: 公開対象ですがアクセス解析タグがありません`)
   }
 
   const offers = JSON.parse(await readFile(path.join(siteRoot, 'offers.json'), 'utf8'))
