@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="月額単価、精算幅、実稼働時間から、準委任契約の超過・控除単価と当月請求額を上下割・中央割で無料計算します。">
+    <link rel="canonical" href="https://hide10.github.io/micro-tools/tools/settlement-range-calculator/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="準委任の精算幅・超過控除計算">
+    <meta property="og:description" content="140–180hの外側で請求額がいくら動くか、上下割・中央割で比較できます。">
+    <meta property="og:url" content="https://hide10.github.io/micro-tools/tools/settlement-range-calculator/">
+    <meta name="twitter:card" content="summary">
+    <title>準委任の精算幅・超過控除計算 | micro-tools</title>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "準委任の精算幅・超過控除計算",
+        "url": "https://hide10.github.io/micro-tools/tools/settlement-range-calculator/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "isAccessibleForFree": true,
+        "inLanguage": "ja",
+        "description": "月額単価、精算幅、実稼働時間から、準委任契約の超過・控除単価と当月請求額を計算します。"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="../../">HIDE10 / MICRO TOOLS</a>
+      <span>TOOL 002</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">SETTLEMENT RANGE / 140–180H</p>
+        <h1>精算幅の外側で、<br><em>いくら動く？</em></h1>
+        <p class="lead">月額単価と実稼働時間を入れると、控除・超過単価と当月の請求額を計算します。上下割と中央割の差も、その場で切り替えられます。</p>
+      </section>
+
+      <section class="calculator" aria-labelledby="calculator-title">
+        <div class="form-column">
+          <div class="section-label"><span>INPUT</span><h2 id="calculator-title">契約条件</h2></div>
+          <form id="settlement-form">
+            <label class="primary-field">
+              <span>月額単価</span>
+              <span class="input-wrap"><input name="monthlyFeeMan" type="number" min="1" max="10000" step="1" value="80" inputmode="decimal"><b>万円</b></span>
+            </label>
+            <div class="range-fields">
+              <label><span>精算幅・下限</span><span class="input-wrap"><input name="lowerHours" type="number" min="1" max="500" step="0.25" value="140" inputmode="decimal"><b>h</b></span></label>
+              <span class="range-mark" aria-hidden="true">—</span>
+              <label><span>精算幅・上限</span><span class="input-wrap"><input name="upperHours" type="number" min="1" max="500" step="0.25" value="180" inputmode="decimal"><b>h</b></span></label>
+            </div>
+            <label class="primary-field actual-field">
+              <span>当月の実稼働時間</span>
+              <span class="input-wrap"><input name="actualHours" type="number" min="0" max="744" step="0.25" value="190" inputmode="decimal"><b>h</b></span>
+            </label>
+            <div class="select-grid">
+              <label><span>単価の算出方式</span><select name="method"><option value="upper-lower">上下割</option><option value="center">中央割</option></select></label>
+              <label><span>1円未満の端数</span><select name="roundingMode"><option value="round">四捨五入</option><option value="floor">切り捨て</option><option value="ceil">切り上げ</option></select></label>
+            </div>
+          </form>
+          <p class="privacy-note">入力値は送信・保存されず、このブラウザ内だけで計算します。</p>
+        </div>
+
+        <div class="result-column" aria-live="polite">
+          <div class="result-topline"><span id="settlement-state">10時間の超過</span><span id="method-label">上下割</span></div>
+          <p class="result-caption">当月請求額の目安</p>
+          <p class="total-result"><strong id="total-payment">844,440</strong><span>円</span></p>
+          <div class="result-grid">
+            <div><span>基本単価</span><strong id="base-fee">800,000</strong><small>円</small></div>
+            <div><span>精算額</span><strong id="adjustment">+44,440</strong><small>円</small></div>
+            <div><span>超過単価</span><strong id="overtime-rate">4,444</strong><small>円/h</small></div>
+            <div><span>控除単価</span><strong id="deduction-rate">5,714</strong><small>円/h</small></div>
+          </div>
+          <p id="result-summary" class="result-summary">180hを10h超過。80万円に44,440円を加算します。</p>
+          <button id="copy-result" class="copy-button" type="button">この条件のURLをコピー</button>
+          <p id="copy-status" class="copy-status" role="status"></p>
+        </div>
+      </section>
+
+      <section id="offers" class="offers" aria-labelledby="offers-title" hidden>
+        <div class="section-label"><span>NEXT</span><h2 id="offers-title">契約条件の違う案件を探す</h2></div>
+        <p class="ad-disclosure">広告：この欄のリンクを経由して申込みが成立すると、当サイトに報酬が入る場合があります。</p>
+        <div id="offer-list"></div>
+      </section>
+
+      <section class="method-note">
+        <div class="section-label"><span>READ</span><h2>計算前に見るところ</h2></div>
+        <div class="note-grid">
+          <article><h3>上下割</h3><p>控除単価は月額÷下限、超過単価は月額÷上限で計算します。控除側の時間単価が高くなる方式です。</p></article>
+          <article><h3>中央割</h3><p>下限と上限の中央値で月額を割り、超過・控除に同じ時間単価を使います。</p></article>
+          <article><h3>契約書が最優先</h3><p>精算単位、端数処理、超過・控除単価が契約書に明記されている場合は、その数値を優先してください。</p></article>
+        </div>
+        <p class="source-note">参考：<a href="https://www.freee.co.jp/kb/kb-deals/outsourcing-price/" rel="noopener noreferrer">freee「精算幅とは？」</a>、<a href="https://freelance-concierge.jp/articles/detail/505/" rel="noopener noreferrer">フリコン「準委任の精算幅とは」</a></p>
+        <p class="disclaimer">この計算は概算です。契約ごとの端数処理、精算単位、消費税、日割り、超過・控除条件は反映していません。請求・契約上の最終判断は契約書と発注元へ確認してください。</p>
+      </section>
+    </main>
+
+    <footer><span>MICRO TOOLS / 002</span><a href="../../">ツール一覧へ</a></footer>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

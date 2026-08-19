@@ -35,4 +35,7 @@ npm run status
 python3 -m http.server 4173 -d dist
 ```
 
-初号機は `sites/freelance-rate-calculator/`。会社員の額面年収から、同じ手取りを維持するために必要なフリーランス売上、月単価、日単価を概算する。
+公開ツール:
+
+- `sites/freelance-rate-calculator/`: 会社員の額面年収から、同じ手取りを維持するために必要なフリーランス売上、月単価、日単価を概算する。
+- `sites/settlement-range-calculator/`: 準委任契約の月額単価、精算幅、実稼働時間から、上下割・中央割の超過控除と当月請求額を概算する。

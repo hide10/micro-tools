@@ -1,0 +1,10 @@
+{
+  "slug": "settlement-range-calculator",
+  "number": "002",
+  "title": "準委任の精算幅・超過控除計算",
+  "summary": "140–180hの外側で動く超過・控除額と当月請求額を計算",
+  "status": "ready",
+  "createdAt": "2026-08-19",
+  "updatedAt": "2026-08-19",
+  "primaryQuery": "準委任 精算幅 140 180 超過 控除 計算"
+}

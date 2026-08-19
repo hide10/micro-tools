@@ -28,6 +28,38 @@
     }
   },
   {
+    "slug": "settlement-range-calculator",
+    "title": "準委任の精算幅・超過控除計算",
+    "problemQuery": "準委任 精算幅 140 180 超過 控除 計算",
+    "audience": "準委任案件を検討・契約しているITフリーランス",
+    "monetization": "ITフリーランス案件紹介",
+    "programEvidence": "https://www.accesstrade.ne.jp/cp/jinzai22/",
+    "programNote": "案件紹介との文脈一致が強い。現行報酬と提携可否はASP管理画面で要確認",
+    "searchEvidence": [
+      "https://www.freee.co.jp/kb/kb-deals/outsourcing-price/",
+      "https://freelance-concierge.jp/articles/detail/505/"
+    ],
+    "approvalStatus": "needs-user-login",
+    "scores": {
+      "searchIntent": 5,
+      "payoutPotential": 5,
+      "authorityFit": 5,
+      "implementationEase": 5,
+      "competition": 4,
+      "maintenanceCost": 2
+    },
+    "status": "built-local",
+    "evidenceCheckedAt": "2026-08-19",
+    "metrics": {
+      "publishedUrl": "",
+      "publishedAt": null,
+      "review14d": null,
+      "review30d": null,
+      "approvedConversions": 0,
+      "approvedRevenueYen": 0
+    }
+  },
+  {
     "slug": "credit-card-break-even",
     "title": "クレジットカード年会費の損益分岐点",
     "problemQuery": "クレジットカード 年会費 元が取れる 計算",
@@ -44,8 +76,9 @@
       "competition": 5,
       "maintenanceCost": 5
     },
-    "status": "researched",
+    "status": "deferred",
     "evidenceCheckedAt": "2026-08-19",
+    "decisionNote": "同じ検索意図の専用シミュレーターが複数上位にあり、金融表現とカード条件更新の保守負担も大きいため保留",
     "metrics": {
       "publishedUrl": "",
       "publishedAt": null,

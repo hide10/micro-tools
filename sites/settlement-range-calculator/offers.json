@@ -1,0 +1,10 @@
+[
+  {
+    "id": "it-freelance-agent-pending",
+    "name": "ITフリーランス案件紹介（提携確認中）",
+    "note": "ASP管理画面で現行条件を確認し、提携承認後のみ表示します。",
+    "cta": "案件条件を見る",
+    "url": "",
+    "approvalStatus": "needs-user-login"
+  }
+]
