@@ -96,6 +96,12 @@
     "monetization": "会計ソフト・ASP登録・販売サービス",
     "programEvidence": "https://www.a8.net/",
     "programNote": "対象案件の有無と成果条件を管理画面で確認",
+    "searchEvidence": [
+      "https://siutil.com/ja/booth-fee-calc/",
+      "https://eo8883494-png.github.io/ai-tools/fee-comparison-calculator.html",
+      "https://webtools-lab.com/tools/mercari-fee/"
+    ],
+    "researchNote": "販売手数料と手取り逆算の需要は確認できた。既存ツールはBOOTH単体・複数販路比較・メルカリ単体に分かれており、税・固定手数料・端数処理を明示した副業向けの汎用計算に余地がある。",
     "approvalStatus": "needs-user-login",
     "scores": {
       "searchIntent": 4,
@@ -105,7 +111,7 @@
       "competition": 3,
       "maintenanceCost": 2
     },
-    "status": "candidate",
+    "status": "researched",
     "evidenceCheckedAt": "2026-08-19",
     "metrics": {
       "publishedUrl": "",
@@ -124,6 +130,13 @@
     "monetization": "SIM・光回線契約",
     "programEvidence": "https://www.accesstrade.ne.jp/",
     "programNote": "既存ブログとの相性は良いが料金更新の保守負担が大きい",
+    "searchEvidence": [
+      "https://kakaku.com/keitai/simulation/",
+      "https://sim-jitsugaku.com/",
+      "https://fixedcost.moneyforward.com/mobile/",
+      "https://www.au.com/mobile/simulation/"
+    ],
+    "researchNote": "価格.comが400以上のプランを一括比較し、専門比較サイト・マネーフォワード・各キャリア公式も同じ検索意図を強くカバーしている。料金・キャンペーン更新の保守コストも高い。",
     "approvalStatus": "needs-user-login",
     "scores": {
       "searchIntent": 5,
@@ -133,7 +146,8 @@
       "competition": 5,
       "maintenanceCost": 5
     },
-    "status": "candidate",
+    "status": "deferred",
+    "decisionNote": "検索需要はあるが強い既存サービスが多く、ゼロ原価で差別化・最新料金維持をする勝算が低いため保留",
     "evidenceCheckedAt": "2026-08-19",
     "metrics": {
       "publishedUrl": "",
